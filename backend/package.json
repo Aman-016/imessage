@@ -5,9 +5,12 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "build": "rimraf dist && copyfiles -u 1 src/**/* dist",
-    "dev": "nodemon src/index.js"
+    "build": "rm -rf dist && cp -R src dist",
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "db:seed": "node src/seeds/user.seed.js"
   },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
