@@ -24,6 +24,12 @@ app.use(express.json());
 app.use(cors({origin: FRONTEND_URL, credentials: true}));
 app.use(clerkMiddleware()); 
 
+// it's important that you don't parse the webhook event data, it should be in the raw format
+app.use(
+  "/api/webhooks/clerk",
+  express.raw({ type: "application/json" }),
+  clerkWebhook
+);
 
 app.get("/health", (req, res) => {
   res.status(200).json({ message: "Server is healthy" });
