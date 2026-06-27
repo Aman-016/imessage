@@ -7,7 +7,7 @@ import { clerkMiddleware } from "@clerk/express";
 
 import { connectDB } from "./lib/db.js";
 import User from "./models/user.model.js";
-import { clerkWebhook } from "./controllers/webhook.controller.js";
+import clerkWebhook from "./webhooks/clerk.webhook.js";
 
 await connectDB();
 
